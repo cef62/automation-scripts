@@ -17,7 +17,6 @@
     "fs-extra": "2.1.2",
     "generate-changelog": "1.1.0",
     "glob": "7.1.1",
-    "inquirer": "3.0.6",
     "rimraf": "2.6.1",
     "shelljs": "0.7.7",
     "yargs": "7.1.0"
