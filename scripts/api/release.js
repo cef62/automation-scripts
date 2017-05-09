@@ -4,8 +4,7 @@ const { exec } = require('./helpers')
 const execFolder = process.cwd()
 const changelogCLI = path.join(execFolder, 'node_modules', '.bin', 'changelog')
 
-const release = (releaseType, changelogType) => exec(`npm run validate`) // eslint-disable-line no-unused-vars,max-len
-  .then(() => exec(`"${changelogCLI}" ${changelogType}`))
+const release = (releaseType, changelogType) => exec(`"${changelogCLI}" ${changelogType}`)
   .then(() => exec(`git add CHANGELOG.md`))
   .then(() => exec(`git commit -m 'updated CHANGELOG.md'`))
   // .then(() => exec(`npm version ${releaseType}`))

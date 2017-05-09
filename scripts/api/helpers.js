@@ -24,7 +24,7 @@ const exec = (
   code,
   errorMsg = 'Something went wrong',
   silent = false,
-  failOnError = true,
+  failOnError = true
 ) =>
   new Promise((resolve, reject) => {
     sh.echo(`Executing: "${code}"`)

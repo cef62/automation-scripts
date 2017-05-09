@@ -3,30 +3,26 @@
 const { createComponent } = require('./api/create-component')
 const { echo, exit } = require('shelljs')
 const {
-  action,
-  target,
-} = require('yargs').option('a', {
-  alias: 'action',
+  name,
+  stateless,
+} = require('yargs').option('n', {
+  alias: 'name',
   demand: true,
-  default: 'create',
   requiresArg: true,
-  describe: 'Type of action to execute',
-  choices: ['create'],
+  describe: 'Name of the component to create',
   type: 'string'
-}).argv
+}).option('s', {
+  alias: 'stateless',
+  demand: false,
+  describe: 'Create a stateless Component',
+  type: 'boolean'
+})
+.argv
 
-const actions = new Map([
-  ['create', () => createComponent()],
-])
-
-if (!actions.has(action)) {
-  echo(`The given action: [${action}] is not valid, see usage help.`)
+try {
+  createComponent(name, stateless)
+  exit(0)
+} catch (err) {
+  echo(err)
   exit(1)
-} else {
-  actions.get(action)(target)
-    .then(() => exit(0))
-    .catch((err) => {
-      echo(err)
-      exit(1)
-    })
 }
