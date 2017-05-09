@@ -1,0 +1,28 @@
+# npm related
+node_modules
+npm-debug.log
+yarn-error.log
+
+# OS and editors related
+.DS_Store
+.vimsession
+.idea/
+.tern-project
+
+# generated folders
+dist
+lib
+coverage
+build
+umd
+styleguide-build
+
+# local project configuration
+config.json
+
+# npm hook opt in/out
+.opt-in
+.opt-out
+
+# docs generated files
+_book
